@@ -1,0 +1,13 @@
+<h1>Jobs</h1>
+
+<a href="/jobs/new">Add Job</a>
+
+{{#each jobs}}
+    <div>
+        <p>Name: {{ this.name }}</p>
+    </div>
+    <a href="/jobs/{{this._id}}">View Job</a>
+    <a href="/jobs/{{this._id}}?_method=DELETE">Delete Job</a>
+    <hr />
+
+{{/each}}
