@@ -4,7 +4,7 @@
 
 {{#each jobs}}
     <div>
-        <p>Name: {{ this.name }}</p>
+        <p>Name: {{ this.title }}</p>
     </div>
     <a href="/jobs/{{this._id}}">View Job</a>
     <a href="/jobs/{{this._id}}?_method=DELETE">Delete Job</a>

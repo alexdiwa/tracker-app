@@ -1,0 +1,47 @@
+{{!-- <h1>New Job</h1> --}}
+
+<form method="post" action="/jobs">
+    <div>
+        <label>Title</label>
+    </div>
+    <div>
+        <input type="text" name="title" />
+    </div>
+    <div>
+        <label>Company</label>
+    </div>
+    <div>
+        <input type="text" name="company" />
+    </div>
+    <div>
+        <label>Description</label>
+    </div>
+    <div>
+        <textarea name="description"></textarea>
+    </div>
+    <div>
+        <label>Application Status</label>
+    </div>
+    <div>
+        <select name="status">
+            <option value="not applied">Not Applied</option>
+            <option value="in progress">In Progress</option>
+            <option value="prepared">Prepared</option>
+            <option value="submitted">Submitted</option>
+        </select>
+    </div>
+    <div>
+        <label>Outcome</label>
+    </div>
+    <div>
+        <select name="outcome">
+            <option value="not applicable">Not Applicable</option>
+            <option value="ghosted">Ghosted</option>
+            <option value="rejection">Rejection</option>
+            <option value="offer">Offer</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Submit Form" />
+    </div>
+</form>
