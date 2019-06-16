@@ -29,11 +29,27 @@ async function destroy(req, res) {
   res.redirect("/jobs");
 }
 
+async function update(req, res) {
+  let { id } = req.params;
+  let {title, company, description, status, outcome} = req.body;
+
+  await JobModel.findByIdAndUpdate(id, {title, company, description, status, outcome});
+  res.redirect(`/jobs/${id}`);
+}
+
+async function edit(req, res) {
+  let { id } = req.params;
+  const job = await JobModel.findById(id);
+  res.render("job/edit", { job });
+}
+
 
 module.exports = {
   index,
   create,
   make,
   show,
-  destroy
+  destroy,
+  update,
+  edit
 }
