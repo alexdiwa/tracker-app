@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const JobController = require("./../controllers/job_controller");
+const QuestionController = require("./../controllers/question_controller");
 
 router.get("/", JobController.index);
 router.get("/new", JobController.make);
@@ -10,5 +11,6 @@ router.delete("/:id", JobController.destroy);
 router.put("/:id", JobController.update);
 router.patch("/:id", JobController.update);
 router.get("/:id/edit", JobController.edit);
+router.post("/:jobId/question", QuestionController.create);
 
 module.exports = router;

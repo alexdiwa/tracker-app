@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const QuestionSchema = require("./question_schema");
 
 const JobSchema = new Schema({
   title: {
@@ -23,7 +24,8 @@ const JobSchema = new Schema({
     type: String,
     enum: ['not applicable', 'ghosted', 'rejection', 'offer'],
     default: 'not applicable'
-  }
+  },
+  questions: [QuestionSchema]
 });
 
 module.exports = JobSchema;

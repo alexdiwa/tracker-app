@@ -7,3 +7,20 @@
 <h3>{{job.status}}</h3>
 
 <h3>{{job.outcome}}</h3>
+
+<form method="post" action="/jobs/{{job._id}}/question">
+    <div>
+        <input type="text" name="questionAsked"></input>
+    </div>
+    <div>
+        <textarea name="myAnswer"></textarea>
+    </div>
+    <input type="submit" value="create comment" />
+</form>
+
+{{#each job.questions}}
+    <div>
+        <h4>{{this.questionAsked}}</h4>
+        <p>{{this.myAnswer}}</p>
+    </div>
+{{/each}}
