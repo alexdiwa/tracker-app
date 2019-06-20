@@ -109,6 +109,19 @@ a:hover {
   grid-column: 1 / span 2;
 }
 
+.heading-bar {
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.heading-bar > h1 {
+  font-size: 1.5em;
+  color: #AAA;
+}
+
 .job-list {
   display: grid;
   grid-gap: 20px;
