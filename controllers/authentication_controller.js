@@ -7,14 +7,19 @@ function registerNew(req, res) {
 async function registerCreate(req, res) {
   const { email, password } = req.body;
   const user = await UserModel.create({ email, password });
-  req.session.user = user;
-  res.redirect("/jobs");
+
+  req.login(user, (err) => {
+    if (err) {
+        return next(err);
+    }
+
+    res.redirect("/jobs");
+  });
 }
 
 function logout(req, res) {
-  req.session.destroy(() => {
-    res.redirect("/");
-  })
+  req.logout();
+  res.redirect("/");
 }
 
 function loginNew(req, res) {
@@ -24,6 +29,7 @@ function loginNew(req, res) {
 async function loginCreate(req, res) {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email });
+  console.log("here");
 
   if (!user) {
     return res.render("authentication/login", { error: "Invalid email & password" });
@@ -35,7 +41,7 @@ async function loginCreate(req, res) {
     return res.render("authentication/login", { error: "Invalid email & password" });
   }
 
-  req.session.user = user;
+  req.user = user;
   res.redirect("/jobs");
 }
 

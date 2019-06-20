@@ -7,6 +7,7 @@ const methodOverride = require("method-override");
 const expressSession = require("express-session");
 const MongoStore = require('connect-mongo')(expressSession);
 const cookieParser = require("cookie-parser");
+const passport = require("passport");
 const app = express();
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -31,11 +32,14 @@ app.use(express.json());
 
 app.use(morgan("combined"));
 
-app.use(function(req,res,next) {
-  if (req.session.user) {
-      res.locals.user = req.session.user;
-  }
+require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
 
+app.use(function(req,res,next) {
+  if (req.user) {
+      res.locals.user = req.user;
+  }
   next();
 });
 
