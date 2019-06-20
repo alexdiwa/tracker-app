@@ -1,14 +1,12 @@
-<h1>Jobs</h1>
-
-<a href="/jobs/new">Add Job</a>
-
+<section class="job-list">
 {{#each jobs}}
-    <div>
-        <p>Name: {{ this.title }}</p>
+    <div class="job-box">
+        <h2>{{ this.company }}</h2>
+        <div class="job-details">
+            <h3>{{ this.title }}</h3>
+            <div>{{ this.description }}</div>
+            <a href="/jobs/{{this._id}}">View Details</a>
+        </div>
     </div>
-    <a href="/jobs/{{this._id}}">View Job</a>
-    <a href="/jobs/{{this._id}}?_method=DELETE">Delete Job</a>
-    <a href="/jobs/{{this._id}}/edit">Edit Job</a>
-    <hr />
-
 {{/each}}
+</section>

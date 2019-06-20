@@ -1,12 +1,27 @@
-<h1>{{job.title}}</h1>
+<section class="job__show">
+    <div class="job__show__titlelabel heading">Title</div>
+    <div class="job__show__title">{{job.title}}</div>
 
-<h2>{{job.company}}</h2>
+    <div class="job__show__companylabel heading">Company</div>
+    <div class="job__show__company">{{job.company}}</div>
 
-<h3>{{job.description}}</h3>
+    <div class="job__show__descriptionlabel heading">Description</div>
+    <div class="job__show__description">{{job.description}} </div>  
+    
+    <div class="job__show__statuslabel heading">Application Status</div>
+    <div class="job__show__status">{{job.status}} </div>  
 
-<h3>{{job.status}}</h3>
+    <div class="job__show__outcomelabel heading">Outcome</div>
+    <div class="job__show__outcome">{{job.outcome}} </div>  
 
-<h3>{{job.outcome}}</h3>
+    <div class="question_heading heading">
+        Interview Questions
+    </div>
+    {{#each job.questions}}
+        <div class="heading">{{this.questionAsked}}</div>
+        <div>{{this.myAnswer}}</div>
+    {{/each}}
+</section>
 
 <form method="post" action="/jobs/{{job._id}}/question">
     <div>
@@ -18,9 +33,5 @@
     <input type="submit" value="create comment" />
 </form>
 
-{{#each job.questions}}
-    <div>
-        <h4>{{this.questionAsked}}</h4>
-        <p>{{this.myAnswer}}</p>
-    </div>
-{{/each}}
+<a href="/jobs/{{job._id}}?_method=DELETE">Delete Job</a>
+<a href="/jobs/{{job._id}}/edit">Edit Job</a>

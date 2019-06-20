@@ -13,6 +13,7 @@ mongoose.connection.on("error", err => console.log(err));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(express.static(__dirname + '/public'));
 
 app.use(methodOverride('_method', { methods: ['POST', 'GET']}));
 
