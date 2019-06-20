@@ -17,6 +17,17 @@ router.post("/register", celebrate({
   }
 }), AuthenticationController.registerCreate);
 
+router.get("/logout", AuthenticationController.logout);
+
+router.get("/login", authRedirect, AuthenticationController.loginNew);
+
+router.post("/login", celebrate({
+    body: {
+        email: Joi.string().required(),
+        password: Joi.string().required()
+    }
+}), AuthenticationController.loginCreate);
+
 router.use("/jobs", jobRoutes);
 
 module.exports = router;

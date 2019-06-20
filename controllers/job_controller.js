@@ -2,7 +2,8 @@ const JobModel = require("./../database/models/job_model");
 
 async function index(req, res) {
   let jobs = await JobModel.find();
-  res.render("job/index", {jobs})
+  const email = req.session.user.email;
+  res.render("job/index", { jobs, email })
 }
 
 async function make(req, res) {
