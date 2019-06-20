@@ -1,15 +1,15 @@
-<h1>Register</h1>
+<section class="login-register">
+    <h1>Register</h1>
 
-<form method="post" action="/register">
-    <div>
+    {{#if error}}
+        <div class="error"><b>Error:</b> {{error}}</div>
+    {{/if}}
+
+    <form method="post" action="/register">
         <label>Email</label>
         <input type="text" name="email" />
-    </div>
-    <div>
         <label>Password</label>
         <input type="password" name="password" />
-    </div>
-    <div>
-        <input type="submit" value="Register" />
-    </div>
-</form>
+        <input type="submit" value="Sign Up" />
+    </form>
+</section>

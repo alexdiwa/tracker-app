@@ -1,4 +1,5 @@
 const { Schema } = require("mongoose");
+const JobSchema = require("./job_schema");
 
 const UserSchema = new Schema({
   email: {

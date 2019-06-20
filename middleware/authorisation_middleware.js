@@ -14,6 +14,7 @@ function authorise(req, res, next) {
   return res.redirect("/");
 }
 
+
 module.exports = {
   authRedirect,
   authorise

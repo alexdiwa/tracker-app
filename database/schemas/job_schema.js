@@ -25,7 +25,11 @@ const JobSchema = new Schema({
     enum: ['not applicable', 'ghosted', 'rejection', 'offer'],
     default: 'not applicable'
   },
-  questions: [QuestionSchema]
+  questions: [QuestionSchema],
+  userId: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = JobSchema;

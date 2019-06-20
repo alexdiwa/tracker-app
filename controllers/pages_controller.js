@@ -1,5 +1,10 @@
 function home(req, res) {
-  res.render("pages/home");
+  let userSignedIn = false;
+  if (req.session && req.session.user) {
+    userSignedIn = true;
+  }
+
+  res.render("pages/home", { userSignedIn });
 }
 
 module.exports = {

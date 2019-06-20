@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
-
 * {
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --color: #5035ED;
 }
 
 body {
@@ -17,20 +20,50 @@ body {
   width: 80%;
   margin: 100px auto;
   letter-spacing: -0.5px;
+  background-color: #EEE;
 }
 
 header {
   grid-column: 1 / span 1;
-  text-align: right;
+  text-align: center;
+  border: 0px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  overflow: hidden;
+  align-self: start; 
 }
 
-ul {
+nav > ul {
   margin: 0;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: max-content; 
 }
 
-li {
+nav > h1 {
+  line-height: 2em;
+  background: var(--color);
+  color: #FFF;
+}
+
+nav > ul > a > li {
   list-style: none;
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+nav > ul > a {
+  text-transform: uppercase; 
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  background: #FFF;
+}
+
+nav > ul > a:hover {
+  background: #EEE;
+  color: var(--color);
+  overflow: hidden;
 }
 
 main {
@@ -53,7 +86,7 @@ h2, h3 {
 }
 
 a {
-  color: #0000FF;
+  color: var(--color);
 }
 
 a:hover {
@@ -83,20 +116,158 @@ a:hover {
   grid-auto-rows: max-content;
 }
 
+.job-list > a {
+  text-decoration: none;
+  color: inherit;
+  height: min-content;
+  width: 100%;
+}
+
 .job-box {
   border: 0px solid #000;
   border-radius: 10px;
-  box-shadow: 1px 1px 8px #CCC;
+  box-shadow: 1px 1px 10px #CCC;
+  align-self: start;
+  overflow: hidden;
+}
+
+.job-box:hover {
+  box-shadow: 2px 2px 10px #AAA;
+  position: relative;
+  top: -1px;
+  left: -1px;
+}
+
+.job-box:active {
+  box-shadow: none;
+  position: relative;
+  top: 2px;
+  left: 2px;
 }
 
 .job-box > h2 {
-  background: #0000FF;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  background: var(--color);
+  font-size: 1.1em;
   padding: 15px;
   color: #FFF;
 }
 
 .job-details {
   padding: 15px;
+  background: #FFF;
+}
+
+
+/* landing page */
+section.landing {
+  border: 0px solid black;
+  padding: 30px;
+  /* border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC; */
+  background-color: #EEE;
+}
+
+section.landing > h1 {
+  font-size: 5em;
+  line-height: 0.9em;
+  letter-spacing: -4px;
+  font-weight: 700;
+}
+
+section.landing > .landing-description {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin: 20px 0;
+  letter-spacing: -1.2px;
+}
+
+section.landing > a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+section.landing > a > button {
+  box-shadow: 1px 1px 3px #CCC;
+}
+
+section.landing > a > button:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  box-shadow: none;
+}
+
+
+button, input[type=submit] {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 10px;
+  background: var(--color);
+  color: #FFF;
+  border: 0;
+  text-transform: uppercase;
+}
+
+
+button:hover, input[type=submit]:hover {
+  border-radius: 10px;
+  background: #CCC;
+  color: #000;
+  cursor: pointer;
+}
+
+/* log in and register */
+
+section.login-register {
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  overflow: hidden;
+  width: 500px;
+  background: #FFF;
+}
+
+section.login-register > h1 {
+  grid-column: 1 / span 2;
+  padding: 20px;
+  background: var(--color);
+  color: #FFF;
+}
+
+section.login-register > .error {
+  grid-column: 1 / span 2;
+  padding: 20px;
+}
+
+
+section.login-register > form {
+  padding: 20px;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-gap: 10px;
+}
+
+section.login-register > form > * {
+  grid-column: 1 / span 1;
+}
+
+section.login-register > form > input[type=submit] {
+  /* grid-column: 1 / span 1; */
+  margin-top: 10px;
+  margin-right: 0;
+}
+
+section.login-register > form > input[type=text], section.login-register > form > input[type=password]  {
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: 0;
+  font-family: inherit;
+  background: #FFF;
+  box-shadow: inset 1px 1px 3px #CCC;
 }

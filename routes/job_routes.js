@@ -5,9 +5,9 @@ const QuestionController = require("./../controllers/question_controller");
 const { authorise } = require("./../middleware/authorisation_middleware");
 
 router.get("/", authorise, JobController.index);
-router.get("/new", JobController.make);
+router.get("/new", authorise, JobController.make);
 router.post("/", JobController.create);
-router.get("/:id", JobController.show);
+router.get("/:id", authorise, JobController.show);
 router.delete("/:id", JobController.destroy);
 router.put("/:id", JobController.update);
 router.patch("/:id", JobController.update);

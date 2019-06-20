@@ -31,10 +31,20 @@ app.use(express.json());
 
 app.use(morgan("combined"));
 
+app.use(function(req,res,next) {
+  if (req.session.user) {
+      res.locals.user = req.session.user;
+  }
+
+  next();
+});
+
+
 app.use(require("./routes"));
 
 app.use(express.static(__dirname + '/public'));
 
 app.use(require("./middleware/error_handler_middleware"));
+
 
 module.exports = app;

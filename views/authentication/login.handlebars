@@ -1,19 +1,15 @@
-<h1>Login</h1>
+<section class="login-register">
+<h1>Welcome Back!</h1>
 
 {{#if error}}
-    <p><b>Error:</b> {{error}}</p>
+    <div class="error"><b>Error:</b> {{error}}</div>
 {{/if}}
 
 <form method="post" action="/login">
-    <div>
-        <label>Email</label>
-        <input type="text" name="email" />
-    </div>
-    <div>
-        <label>Password</label>
-        <input type="password" name="password" />
-    </div>
-    <div>
-        <input type="submit" value="Login" />
-    </div>
+    <label>Email</label>
+    <input type="text" name="email" />
+    <label>Password</label>
+    <input type="password" name="password" />
+    <input type="submit" value="Login" />
 </form>
+</section>

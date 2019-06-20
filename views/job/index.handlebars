@@ -1,13 +1,14 @@
 <h1>Hi {{ email }}</h1>
 <section class="job-list">
 {{#each jobs}}
-    <div class="job-box">
-        <h2>{{ this.company }}</h2>
-        <div class="job-details">
-            <h3>{{ this.title }}</h3>
-            <div>{{ this.description }}</div>
-            <a href="/jobs/{{this._id}}">View Details</a>
+    <a href="/jobs/{{this._id}}">
+        <div class="job-box">
+            <h2>{{ this.company }}</h2>
+            <div class="job-details">
+                <h3>{{ this.title }}</h3>
+                <div>{{ this.description }}</div>
+            </div>
         </div>
-    </div>
+    </a>
 {{/each}}
 </section>
