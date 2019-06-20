@@ -1,25 +1,40 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const methodOverride = require("method-override");
+const expressSession = require("express-session");
+const MongoStore = require('connect-mongo')(expressSession);
+const cookieParser = require("cookie-parser");
 const app = express();
-const port = 3000;
-
-mongoose.connect("mongodb://localhost/jobtracker", { useNewUrlParser: true });
-mongoose.Promise = global.Promise;
-
-mongoose.connection.on("error", err => console.log(err));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-app.use(express.static(__dirname + '/public'));
 
 app.use(methodOverride('_method', { methods: ['POST', 'GET']}));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+      expires: 600000
+  },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(morgan("combined"));
 
 app.use(require("./routes"));
 
-app.listen(port, () => console.log(`Server is listening on port ${port}`));
+app.use(express.static(__dirname + '/public'));
+
+app.use(require("./middleware/error_handler_middleware"));
+
+module.exports = app;
