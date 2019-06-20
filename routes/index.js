@@ -4,10 +4,11 @@ const jobRoutes = require("./job_routes");
 const PagesController = require("./../controllers/pages_controller")
 const AuthenticationController = require("./../controllers/authentication_controller");
 const { celebrate, Joi } = require("celebrate");
+const { authRedirect } = require("./../middleware/authorisation_middleware");
 
 router.get("/", PagesController.home);
 
-router.get("/register", AuthenticationController.registerNew);
+router.get("/register", authRedirect, AuthenticationController.registerNew);
 
 router.post("/register", celebrate({
   body: {
