@@ -23,7 +23,6 @@ section.landing {
   }
 
   .landing-links {
-    // justify-content: space-between;
     margin-top: 20px;
 
     a {
@@ -34,7 +33,7 @@ section.landing {
 @media screen and (min-width: 600px) {
   section.landing {
     grid-template-columns: repeat(12, 1fr);
-
+ 
     h1 {
       grid-column: 1 / span 6;
       grid-row: 1 / span 3;
