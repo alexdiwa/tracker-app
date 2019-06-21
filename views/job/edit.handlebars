@@ -1,47 +1,41 @@
-<h1>Edit Job</h1>
+<h1 class="new-job-header">Edit your application</h1>
 
 <form method="post" action="/jobs/{{job._id}}?_method=PUT">
-    <div>
-        <label>Title</label>
-    </div>
-    <div>
-        <input type="text" name="title" value="{{job.title}}"/>
-    </div>
-    <div>
-        <label>Company</label>
-    </div>
-    <div>
-        <input type="text" name="company" value="{{job.company}}"/>
-    </div>
-    <div>
-        <label>Description</label>
-    </div>
-    <div>
-        <textarea name="description">{{job.description}}</textarea>
-    </div>
-    <div>
-        <label>Application Status</label>
-    </div>
-    <div>
-        <select name="status">
-            <option value="not applied">Not Applied</option>
-            <option value="in progress">In Progress</option>
-            <option value="prepared">Prepared</option>
-            <option value="submitted">Submitted</option>
-        </select>
-    </div>
-    <div>
+    <section class="new-job">
+        <div class="new-job-title">
+            <label>Title</label>
+            <input type="text" name="title" value="{{job.title}}"/>
+        </div>
+        <div class="new-job-company">
+            <label>Company</label>
+            <input type="text" name="company" value="{{job.company}}"/>
+        </div>
+        </div>
+        <div class="new-job-description">
+            <label>Description</label>
+            <textarea name="description" rows="4">{{job.description}}</textarea>
+        </div>
+        <div class="new-job-status">
+            <label>Application Status</label>
+            <select name="status">
+                <option value="not applied">Not Applied</option>
+                <option value="in progress">In Progress</option>
+                <option value="prepared">Prepared</option>
+                <option value="submitted">Submitted</option>
+            </select>
+        </div>
+        <div class="new-job-outcome">
         <label>Outcome</label>
-    </div>
-    <div>
-        <select name="outcome">
-            <option value="not applicable">Not Applicable</option>
-            <option value="ghosted">Ghosted</option>
-            <option value="rejection">Rejection</option>
-            <option value="offer">Offer</option>
-        </select>
-    </div>
-    <div>
-        <input type="submit" value="Update Job" />
-    </div>
+            <select name="outcome">
+                <option value="not applicable">Not Applicable</option>
+                <option value="ghosted">Ghosted</option>
+                <option value="rejection">Rejection</option>
+                <option value="offer">Offer</option>
+            </select>
+        </div>
+        </div>
+        <div class="new-job-button">
+            <input type="submit" value="Update Job" />
+        </div>
+    </section>
 </form>

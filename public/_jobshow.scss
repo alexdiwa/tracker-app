@@ -109,9 +109,13 @@
   padding: 15px;
   background: $light;
 
+  label {
+    font-weight: 700;
+  }
+
   input[type=text], textarea {
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 1em;
     border-radius: 5px;
     border: 0;
     font-family: inherit;

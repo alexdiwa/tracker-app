@@ -11,7 +11,7 @@ router.get("/:id", authorise, JobController.show);
 router.delete("/:id", JobController.destroy);
 router.put("/:id", JobController.update);
 router.patch("/:id", JobController.update);
-router.get("/:id/edit", JobController.edit);
+router.get("/:id/edit", authorise, JobController.edit);
 router.post("/:jobId/question", QuestionController.create);
 
 module.exports = router;
