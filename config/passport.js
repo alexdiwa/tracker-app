@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const UserModel = require("./../database/models/user_model");
 const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
+const { Strategy: GoogleStrategy } = require("passport-google-oauth20");
 
 passport.serializeUser((user, done) => {
   done(null, user._id);
@@ -54,5 +55,24 @@ passport.use(new JwtStrategy(
       }
 
       return done(null, user);
+  }
+));
+
+passport.use(new GoogleStrategy(
+  {
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google"
+  },
+  async (accessToken, refreshToken, profile, done) => {
+    const email = profile.emails[0].value;
+    let user = await UserModel.findOne({ email });
+    if (user) {
+      return done(null, user);
+    }
+
+    user = await UserModel.create({ email, password: 'testing1' });
+
+    return done(null, user);
   }
 ));

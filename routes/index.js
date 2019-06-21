@@ -33,6 +33,14 @@ passport.authenticate('local', {
   session: false
 }), AuthenticationController.loginCreate);
 
+router.get("/auth/googlelogin", passport.authenticate("google", { scope: ["email", "profile"] }));
+
+router.get("/auth/google", passport.authenticate("google",  {
+  failureRedirect: '/login',
+  session: false
+}), AuthenticationController.loginCreate);
+
+
 router.use("/jobs", jobRoutes);
 
 module.exports = router;
