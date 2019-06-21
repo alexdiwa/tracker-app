@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+@import "nav";
+@import "joblistings";
+@import "landing";
+@import "jobshow";
+@import "loginregister";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color: #5035ED;
+}
+
+body {
+  font-family: 'Karla';
+  font-weight: 400;
+  line-height: 1.5em;
+  /* letter-spacing: -1px; */
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 30px;
+  width: 100%;
+  margin: 100px auto;
+  padding: 0 30px;
+  letter-spacing: -0.5px;
+  background-color: #EEE;
+}
+
+@media screen and (min-width: 550px) {
+  body {
+    width: 80%;
+    padding: 0;
+  }
+}
+
+main.signed_in {
+  grid-column: 1 / span 2;
+}
+
+@media screen and (min-width: 600px) {
+  main.signed_in {
+    grid-column: 2 / span 1;
+  }
+}
+
+
+main.signed_out {
+  grid-column: 1 / span 2;
+}
+
+main > * + * {
+  margin-top: 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+h2, h3 {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+a {
+  color: var(--color);
+}
+
+a:hover {
+  text-decoration: none;
+  color: #333333;
+}
+
+// job show
+
+
+.heading-bar {
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.heading-bar > h1 {
+  font-size: 1.5em;
+  color: #AAA;
+}
+
+// job listings
+
+/* landing page */
+
+button, input[type=submit] {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 10px;
+  background: var(--color);
+  color: #FFF;
+  border: 0;
+  text-transform: uppercase;
+}
+
+
+button:hover, input[type=submit]:hover {
+  border-radius: 10px;
+  background: #CCC;
+  color: #000;
+  cursor: pointer;
+}
+
+/* log in and register */
+

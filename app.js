@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo')(expressSession);
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const app = express();
+const sassMiddleware = require("node-sass-middleware");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -43,10 +44,17 @@ app.use(function(req,res,next) {
   next();
 });
 
+app.use(sassMiddleware({
+  src: __dirname + '/public',
+  dest: __dirname + '/dest',
+  outputStyle: 'compressed'
+}))
+
+app.use(express.static('dest'));
+
 
 app.use(require("./routes"));
 
-app.use(express.static(__dirname + '/public'));
 
 app.use(require("./middleware/error_handler_middleware"));
 

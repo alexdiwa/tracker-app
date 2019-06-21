@@ -1,0 +1,92 @@
+.job-show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.job-show-header {
+  grid-column: 1 / span 2;
+  background: var(--color);
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  padding: 15px;
+  color: #FFF;
+}
+
+.job-show-header > h2 {
+  font-size: 1.5em;
+}
+
+.job-show-details {
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 1px 1px 10px #CCC;
+  grid-column: 1 / span 1;
+  overflow: hidden;
+}
+
+.job-show-details > h2 {
+  background: var(--color);
+  color: #FFF;
+  padding: 15px;
+}
+
+.job-show-details-description {
+  padding: 15px;
+}
+
+.status-outcome {
+  grid-column: 2 / span 1;
+  display: grid;
+  align-content: start;
+  grid-gap: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  .job-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.job-show-status, .job-show-outcome {
+  align-self: start;
+  grid-row: span 1;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 1px 1px 10px #CCC;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
+}
+
+.job-show-status > h2, .job-show-status > h3, .job-show-outcome > h2, .job-show-outcome > h3 {
+  padding: 15px;
+}
+
+.job-show-status > h2, .job-show-outcome > h2 {
+  background: #CCC;
+}
+
+.job-show-questions {
+  grid-column: 1 / span 2;
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  overflow: hidden;
+}
+
+.job-show-questions > h2 {
+  background: var(--color);
+  color: #FFF;
+  padding: 15px;
+}
+
+.job-show-questions > * + * {
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+
+.job-show-question {
+  font-weight: 700;
+  margin-top: 15px;
+}

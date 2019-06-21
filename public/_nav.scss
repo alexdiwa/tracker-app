@@ -1,0 +1,52 @@
+header {
+  grid-column: 1 / span 2;
+  text-align: center;
+  border: 0px solid black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  overflow: hidden;
+  align-self: start; 
+}
+
+nav {
+
+  ul {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content; 
+
+    a {
+      text-transform: uppercase; 
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1em;
+      background: #FFF;
+
+      &:hover {
+        background: #EEE;
+        color: var(--color);
+        overflow: hidden;
+      }
+
+      li {
+        list-style: none;
+        border-top: 1px solid #eee;
+        padding: 10px;
+      }
+    }
+  }
+
+  h1 {
+    line-height: 2em;
+    background: var(--color);
+    color: #FFF;
+  }
+}
+
+
+@media screen and (min-width: 600px) {
+  header {
+    grid-column: 1 / span 1;
+  }
+}

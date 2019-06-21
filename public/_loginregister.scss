@@ -1,0 +1,57 @@
+section.login-register {
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background: #FFF;
+}
+
+@media screen and (min-width: 600px) {
+  section.login-register {
+    width: 500px;
+  }
+}
+
+section.login-register > h1 {
+  grid-column: 1 / span 2;
+  padding: 20px;
+  background: var(--color);
+  color: #FFF;
+}
+
+section.login-register > .error {
+  grid-column: 1 / span 2;
+  padding: 20px;
+}
+
+
+section.login-register > form {
+  padding: 20px;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-gap: 10px;
+}
+
+section.login-register > form > * {
+  grid-column: 1 / span 1;
+}
+
+section.login-register > form > input[type=submit] {
+  /* grid-column: 1 / span 1; */
+  margin-top: 10px;
+  margin-right: 0;
+}
+
+section.login-register > form > input[type=text], section.login-register > form > input[type=password]  {
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: 0;
+  font-family: inherit;
+  background: #FFF;
+  box-shadow: inset 1px 1px 3px #CCC;
+}

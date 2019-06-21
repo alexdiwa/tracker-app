@@ -1,0 +1,40 @@
+section.landing {
+  border: 0px solid black;
+  padding: 30px;
+  /* border-radius: 10px;
+  box-shadow: 1px 1px 10px #CCC; */
+  background-color: #EEE;
+}
+
+section.landing > h1 {
+  font-size: 5em;
+  font-family: 'Archivo Black', sans-serif;
+  line-height: 0.9em;
+  font-weight: 400;
+  letter-spacing: -4px;
+}
+
+section.landing > .landing-description {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin: 20px 0;
+  letter-spacing: -1.2px;
+}
+
+section.landing > a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+section.landing > a > button {
+  box-shadow: 1px 1px 3px #CCC;
+}
+
+section.landing > a > button:active {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  box-shadow: none;
+}

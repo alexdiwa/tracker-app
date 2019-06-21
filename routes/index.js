@@ -7,7 +7,7 @@ const { celebrate, Joi } = require("celebrate");
 const { authRedirect } = require("./../middleware/authorisation_middleware");
 const passport = require("passport");
 
-router.get("/", PagesController.home);
+router.get("/", authRedirect, PagesController.home);
 
 router.get("/register", authRedirect, AuthenticationController.registerNew);
 

@@ -1,26 +1,32 @@
-<section class="job__show">
-    <div class="job__show__titlelabel heading">Title</div>
-    <div class="job__show__title">{{job.title}}</div>
-
-    <div class="job__show__companylabel heading">Company</div>
-    <div class="job__show__company">{{job.company}}</div>
-
-    <div class="job__show__descriptionlabel heading">Description</div>
-    <div class="job__show__description">{{job.description}} </div>  
-    
-    <div class="job__show__statuslabel heading">Application Status</div>
-    <div class="job__show__status">{{job.status}} </div>  
-
-    <div class="job__show__outcomelabel heading">Outcome</div>
-    <div class="job__show__outcome">{{job.outcome}} </div>  
-
-    <div class="question_heading heading">
-        Interview Questions
+<section class="job-show">
+    <div class="job-show-header">
+        <h2>{{job.company}}</h2>
+        <h3>{{job.title}}</h3>
     </div>
-    {{#each job.questions}}
-        <div class="heading">{{this.questionAsked}}</div>
+    <div class="job-show-details">
+        <h2>Details</h2>
+        <div class="job-show-details-description">
+            {{job.description}}
+        </div>  
+    </div>
+    <div class="status-outcome">
+        <div class="job-show-status">
+            <h2>Status</h2>
+            <h3>{{job.status}}</h3>
+        </div>
+        <div class="job-show-outcome">
+            <h2>Outcome</h2>
+            <h3>{{job.outcome}}</h3>
+        </div>
+    </div>
+
+    <div class="job-show-questions">
+        <h2>Interview Questions</h2>
+        {{#each job.questions}}
+        <div class="job-show-question">{{this.questionAsked}}</div>
         <div>{{this.myAnswer}}</div>
-    {{/each}}
+        {{/each}}
+    </div>
 </section>
 
 <form method="post" action="/jobs/{{job._id}}/question">
