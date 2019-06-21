@@ -1,0 +1,74 @@
+section.new-job {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-gap: 20px;
+
+  label {
+    font-weight: 700;
+  }
+
+  input[type=text], textarea {
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 0;
+    font-family: inherit;
+    background: $light;
+    box-shadow: inset 1px 1px 3px $shadow;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  select {
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    margin-top: 5px;
+  }
+
+  div {
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px $shadow;
+    overflow: hidden;
+    padding: 20px;
+    background: $light;
+    grid-column: 1 / span 2;
+  }
+
+  div.new-job-button {
+    background: none;
+    grid-column: span 2;
+    padding: 0;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .new-job-description {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  section.new-job {
+    div {
+      grid-column: span 1;
+    }
+  }
+}
+
+.new-job-header {
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px $shadow;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 1.5em;
+  background: $maincolor;
+  color: $light;
+}

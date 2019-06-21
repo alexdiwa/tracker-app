@@ -27,17 +27,17 @@
         <div>{{this.myAnswer}}</div>
         {{/each}}
     </div>
+
+    <form class="question-form" method="post" action="/jobs/{{job._id}}/question">
+        <label>Question</label>
+        <input type="text" name="questionAsked"></input>
+        <label>Answer</label>
+        <textarea name="myAnswer"></textarea>
+        <input type="submit" value="Add Q&A" />
+    </form>
 </section>
 
-<form method="post" action="/jobs/{{job._id}}/question">
-    <div>
-        <input type="text" name="questionAsked"></input>
-    </div>
-    <div>
-        <textarea name="myAnswer"></textarea>
-    </div>
-    <input type="submit" value="create comment" />
-</form>
+
 
 <a href="/jobs/{{job._id}}?_method=DELETE">Delete Job</a>
 <a href="/jobs/{{job._id}}/edit">Edit Job</a>

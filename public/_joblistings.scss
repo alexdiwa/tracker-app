@@ -21,14 +21,14 @@
 .job-box {
   border: 0px solid #000;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC;
+  box-shadow: 1px 1px 10px $shadow;
   align-self: start;
   overflow: hidden;
 }
 
 
 .job-box:hover {
-  box-shadow: 2px 2px 10px #AAA;
+  box-shadow: 2px 2px 10px $dark;
   position: relative;
   top: -1px;
   left: -1px;
@@ -42,13 +42,13 @@
 }
 
 .job-box > h2 {
-  background: var(--color);
+  background: $maincolor;
   font-size: 1.1em;
   padding: 15px;
-  color: #FFF;
+  color: $light;
 }
 
 .job-details {
   padding: 15px;
-  background: #FFF;
+  background: $light;
 }

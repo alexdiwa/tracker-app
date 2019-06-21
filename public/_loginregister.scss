@@ -3,11 +3,11 @@ section.login-register {
   border: 0px solid black;
   grid-template-columns: 1fr 1fr;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC;
+  box-shadow: 1px 1px 10px $shadow;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
-  background: #FFF;
+  background: $light;
 }
 
 @media screen and (min-width: 600px) {
@@ -19,8 +19,8 @@ section.login-register {
 section.login-register > h1 {
   grid-column: 1 / span 2;
   padding: 20px;
-  background: var(--color);
-  color: #FFF;
+  background: $maincolor;
+  color: $light;
 }
 
 section.login-register > .error {
@@ -52,6 +52,6 @@ section.login-register > form > input[type=text], section.login-register > form 
   border-radius: 5px;
   border: 0;
   font-family: inherit;
-  background: #FFF;
-  box-shadow: inset 1px 1px 3px #CCC;
+  background: $light;
+  box-shadow: inset 1px 1px 3px $shadow;
 }

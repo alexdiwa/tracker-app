@@ -6,11 +6,11 @@
 
 .job-show-header {
   grid-column: 1 / span 2;
-  background: var(--color);
+  background: $maincolor;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC;
+  box-shadow: 1px 1px 10px $shadow;
   padding: 15px;
-  color: #FFF;
+  color: $light;
 }
 
 .job-show-header > h2 {
@@ -19,15 +19,15 @@
 
 .job-show-details {
   border-radius: 10px;
-  background: #FFF;
-  box-shadow: 1px 1px 10px #CCC;
-  grid-column: 1 / span 1;
+  background: $light;
+  box-shadow: 1px 1px 10px $shadow;
+  grid-column: 1 / span 2;
   overflow: hidden;
 }
 
 .job-show-details > h2 {
-  background: var(--color);
-  color: #FFF;
+  background: $maincolor;
+  color: $light;
   padding: 15px;
 }
 
@@ -36,15 +36,19 @@
 }
 
 .status-outcome {
-  grid-column: 2 / span 1;
+  grid-column: 1 / span 2;
   display: grid;
   align-content: start;
   grid-gap: 20px;
 }
 
-@media screen and (min-width: 600px) {
-  .job-list {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+@media screen and (min-width: 900px) {
+  .job-show-details {
+    grid-column: 1 / span 1; 
+  }
+
+  .status-outcome {
+    grid-column: 2 / span 1;
   }
 }
 
@@ -52,8 +56,8 @@
   align-self: start;
   grid-row: span 1;
   border-radius: 10px;
-  background: #FFF;
-  box-shadow: 1px 1px 10px #CCC;
+  background: $light;
+  box-shadow: 1px 1px 10px $shadow;
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
@@ -64,20 +68,20 @@
 }
 
 .job-show-status > h2, .job-show-outcome > h2 {
-  background: #CCC;
+  background: $shadow;
 }
 
 .job-show-questions {
   grid-column: 1 / span 2;
-  background: #FFF;
+  background: $light;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC;
+  box-shadow: 1px 1px 10px $shadow;
   overflow: hidden;
 }
 
 .job-show-questions > h2 {
-  background: var(--color);
-  color: #FFF;
+  background: $maincolor;
+  color: $light;
   padding: 15px;
 }
 
@@ -89,4 +93,34 @@
 .job-show-question {
   font-weight: 700;
   margin-top: 15px;
+}
+
+.question-form {
+  grid-column: 1 / span 2;
+  display: grid;
+  border: 0px solid black;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px $shadow;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  background: $light;
+
+  input[type=text], textarea {
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    border: 0;
+    font-family: inherit;
+    background: $light;
+    box-shadow: inset 1px 1px 3px $shadow;
+  }
+
+  textarea {
+    resize: none;
+    height: 4em;
+  }
 }

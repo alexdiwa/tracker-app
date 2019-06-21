@@ -2,8 +2,8 @@ section.landing {
   border: 0px solid black;
   padding: 30px;
   /* border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC; */
-  background-color: #EEE;
+  box-shadow: 1px 1px 10px $shadow; */
+  background-color: $medium;
 }
 
 section.landing > h1 {
@@ -29,7 +29,7 @@ section.landing > a {
 }
 
 section.landing > a > button {
-  box-shadow: 1px 1px 3px #CCC;
+  box-shadow: 1px 1px 3px $shadow;
 }
 
 section.landing > a > button:active {

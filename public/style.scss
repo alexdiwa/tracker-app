@@ -1,19 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+@import "variables";
 @import "nav";
 @import "joblistings";
 @import "landing";
 @import "jobshow";
 @import "loginregister";
+@import "jobnew";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --color: #5035ED;
 }
 
 body {
@@ -28,7 +26,7 @@ body {
   margin: 100px auto;
   padding: 0 30px;
   letter-spacing: -0.5px;
-  background-color: #EEE;
+  background-color: $medium;
 }
 
 @media screen and (min-width: 550px) {
@@ -69,7 +67,7 @@ h2, h3 {
 }
 
 a {
-  color: var(--color);
+  color: $maincolor;
 }
 
 a:hover {
@@ -77,33 +75,28 @@ a:hover {
   color: #333333;
 }
 
-// job show
-
 
 .heading-bar {
-  background: #FFF;
+  background: $light;
   border-radius: 10px;
-  box-shadow: 1px 1px 10px #CCC;
+  box-shadow: 1px 1px 10px $shadow;
   padding: 15px;
   margin-bottom: 20px;
 }
 
 .heading-bar > h1 {
   font-size: 1.5em;
-  color: #AAA;
+  color: $dark;
 }
 
-// job listings
-
-/* landing page */
 
 button, input[type=submit] {
   padding: 10px 20px;
   font-size: 1.2em;
   font-weight: 700;
   border-radius: 10px;
-  background: var(--color);
-  color: #FFF;
+  background: $maincolor;
+  color: $light;
   border: 0;
   text-transform: uppercase;
 }
@@ -111,10 +104,7 @@ button, input[type=submit] {
 
 button:hover, input[type=submit]:hover {
   border-radius: 10px;
-  background: #CCC;
+  background: $shadow;
   color: #000;
   cursor: pointer;
 }
-
-/* log in and register */
-
