@@ -29,9 +29,9 @@ router.post("/login", celebrate({
   }
 }), 
 passport.authenticate('local', {
-  successRedirect: "/jobs",
-  failureRedirect: "/login"
-}));
+  failureRedirect: "/login",
+  session: false
+}), AuthenticationController.loginCreate);
 
 router.use("/jobs", jobRoutes);
 

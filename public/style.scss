@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:600&display=swap');
 @import "variables";
 @import "nav";
 @import "joblistings";
@@ -12,6 +13,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+[data-whatintent='keyboard'] *:focus {
+  box-shadow: 0 0 0pt 2pt rgb(163, 25, 255);
+  outline: none;
+}
+
+[data-whatintent='mouse'] *:focus {
+  outline: none;
 }
 
 body {
@@ -57,13 +67,17 @@ main > * + * {
 
 h1 {
   font-size: 2em;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -2px;
+  font-family: "IBM Plex Mono";
+  font-weight: 600;
+
 }
 
 h2, h3 {
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 600;
+  font-family: "IBM Plex Mono"
 }
 
 a {
@@ -90,21 +104,116 @@ a:hover {
 }
 
 
-button, input[type=submit] {
-  padding: 10px 20px;
-  font-size: 1.2em;
+// button, input[type=submit] {
+//   padding: 10px 20px;
+//   font-size: 1.2em;
+//   font-weight: 700;
+//   border-radius: 10px;
+//   background: $maincolor;
+//   color: $light;
+//   border: 0;
+//   text-transform: uppercase;
+// }
+
+
+// button:hover, input[type=submit]:hover {
+//   border-radius: 10px;
+//   background: $shadow;
+//   color: #000;
+//   cursor: pointer;
+// }
+
+input[type=text], input[type=password], textarea {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 0;
+  font-family: inherit;
+  background: $light;
+  box-shadow: inset 1px 1px 2px $shadow;
+  width: 100%;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+label {
   font-weight: 700;
+}
+
+a.link-button, button, input[type=submit] {
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-weight: 600;
+  padding: 10px;
   border-radius: 10px;
   background: $maincolor;
+  border: 2px solid $maincolor;
   color: $light;
-  border: 0;
-  text-transform: uppercase;
-}
-
-
-button:hover, input[type=submit]:hover {
-  border-radius: 10px;
-  background: $shadow;
-  color: #000;
+  box-shadow: 1px 1px 10px $shadow;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    box-shadow: 2px 2px 10px $dark;
+    position: relative;
+    top: -1px;
+    left: -1px;
+  }
+
+  &:active {
+    box-shadow: none;
+    position: relative;
+    top: 2px;
+    left: 2px;
+  }
 }
+
+.lg {
+  font-size: 1.3em;
+}
+
+.sm {
+  font-size: 1em;
+}
+
+a.secondary {
+  background-color: $dark;
+  border-color: $dark;
+  color: $light;
+}
+
+a.danger {
+  background-color: $danger;
+  border-color: $danger;
+  color: $light;
+}
+
+//  {
+//   font-family: 'IBM Plex Mono', sans-serif;
+//   font-weight: 600;
+//   padding: 10px;
+//   border-radius: 10px;
+//   background: $maincolor;
+//   border: 2px solid $maincolor;
+//   color: $light;
+//   box-shadow: 1px 1px 10px $shadow;
+//   cursor: pointer;
+
+//   &:hover {
+//     box-shadow: 2px 2px 10px $dark;
+//     position: relative;
+//     top: -1px;
+//     left: -1px;
+//   }
+
+//   &:active {
+//     box-shadow: none;
+//     position: relative;
+//     top: 2px;
+//     left: 2px;
+//   }
+
+// }

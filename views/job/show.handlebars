@@ -33,11 +33,10 @@
         <input type="text" name="questionAsked"></input>
         <label>Answer</label>
         <textarea rows="4" name="myAnswer"></textarea>
-        <input type="submit" value="Add Q&A" />
+        <input class="sm" type="submit" value="Add Q&A" />
     </form>
-
-    <div class="job-show-links">
-        <a href="/jobs/{{job._id}}/edit"><button>Edit</button></a>
-        <a href="/jobs/{{job._id}}?_method=DELETE"><button class="delete">Delete</button></a>
-    </div>
 </section>
+<div class="job-show-links">
+    <a class="link-button sm secondary" href="/jobs/{{job._id}}/edit">Edit</a>
+    <a class="link-button sm danger" href="/jobs/{{job._id}}?_method=DELETE">Delete</a>
+</div>

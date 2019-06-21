@@ -8,6 +8,7 @@ const expressSession = require("express-session");
 const MongoStore = require('connect-mongo')(expressSession);
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
+const { errors } = require("celebrate");
 const app = express();
 const sassMiddleware = require("node-sass-middleware");
 
@@ -38,8 +39,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(function(req,res,next) {
-  if (req.user) {
-      res.locals.user = req.user;
+  if (req && req.cookies) {
+    res.locals.user = req.cookies['jwt'];
+  } else {
+    res.locals.user = null;
   }
   next();
 });
@@ -55,8 +58,9 @@ app.use(express.static('dest'));
 
 app.use(require("./routes"));
 
-
 app.use(require("./middleware/error_handler_middleware"));
 
+
+app.use(errors());
 
 module.exports = app;

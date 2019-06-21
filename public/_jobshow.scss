@@ -109,41 +109,11 @@
   padding: 15px;
   background: $light;
 
-  label {
-    font-weight: 700;
-  }
-
-  input[type=text], textarea {
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 0;
-    font-family: inherit;
-    background: $light;
-    box-shadow: inset 1px 1px 3px $shadow;
-  }
-
-  textarea {
-    resize: none;
-    height: 4em;
-  }
 }
 
 .job-show-links {
-  
+  padding-top: 10px;
   a {
-    width: 100%;
-    height: 100%;
-
-    button {
-      font-size: 1em;
-      padding: 10px;
-      margin: 2px;
-      box-shadow: 1px 1px 10px $shadow;
-    }
-
-    button.delete {
-      background: $danger;
-    }
+    margin-right: 10px;
   }
 }

@@ -1,6 +1,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const UserModel = require("./../database/models/user_model");
+const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
 
 passport.serializeUser((user, done) => {
   done(null, user._id);
@@ -16,7 +17,8 @@ passport.deserializeUser(async (id, done) => {
 });
 
 passport.use(new LocalStrategy({
-        usernameField: "email"
+        usernameField: "email",
+        session: false
     },
     async (email, password, done) => {
         const user = await UserModel.findOne({ email })
@@ -28,4 +30,29 @@ passport.use(new LocalStrategy({
 
         return done(null, false);
     }
+));
+
+passport.use(new JwtStrategy(
+  {
+    jwtFromRequest: (req) => {
+      let token = null;
+
+      if (req && req.cookies) {
+        token = req.cookies['jwt'];
+      }
+
+      return token;
+    },
+    secretOrKey: process.env.JWT_SECRET
+  },
+  async (jwt_payload, done) => {
+    const user = await UserModel.findById(jwt_payload.sub)
+      .catch(done);
+
+      if (!user) {
+        return done(null, false);
+      }
+
+      return done(null, user);
+  }
 ));
