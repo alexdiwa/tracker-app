@@ -35,9 +35,9 @@
         <textarea rows="4" name="myAnswer"></textarea>
         <input type="submit" value="Add Q&A" />
     </form>
+
+    <div class="job-show-links">
+        <a href="/jobs/{{job._id}}/edit"><button>Edit</button></a>
+        <a href="/jobs/{{job._id}}?_method=DELETE"><button class="delete">Delete</button></a>
+    </div>
 </section>
-
-
-
-<a href="/jobs/{{job._id}}?_method=DELETE">Delete Job</a>
-<a href="/jobs/{{job._id}}/edit">Edit Job</a>
