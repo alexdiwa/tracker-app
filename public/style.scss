@@ -86,12 +86,12 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #333333;
+  color: $darkest;
 }
 
 
 .heading-bar {
-  background: $light;
+  background: $darkest;
   border-radius: 10px;
   box-shadow: 1px 1px 10px $shadow;
   padding: 15px;
@@ -100,7 +100,7 @@ a:hover {
 
 .heading-bar > h1 {
   font-size: 1.5em;
-  color: $dark;
+  color: $light;
 }
 
 
@@ -169,5 +169,11 @@ a.secondary, input.secondary {
 a.danger, input.danger {
   background-color: $danger;
   border-color: $danger;
+  color: $light;
+}
+
+a.positive, input.positive {
+  background-color: $positive;
+  border-color: $positive;
   color: $light;
 }

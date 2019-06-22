@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 // const bodyParser = require("body-parser");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const methodOverride = require("method-override");
 const expressSession = require("express-session");
 const MongoStore = require('connect-mongo')(expressSession);
@@ -32,7 +32,7 @@ app.use(expressSession({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 
 require("./config/passport");
 app.use(passport.initialize());

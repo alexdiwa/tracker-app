@@ -6,7 +6,7 @@
 
 .job-show-header {
   grid-column: 1 / span 2;
-  background: $maincolor;
+  background: $darkest;
   border-radius: 10px;
   box-shadow: 1px 1px 10px $shadow;
   padding: 15px;
@@ -61,6 +61,10 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   overflow: hidden;
+
+  h2 {
+    color: $light;
+  }
 }
 
 .job-show-status > h2, .job-show-status > h3, .job-show-outcome > h2, .job-show-outcome > h3 {
@@ -68,7 +72,7 @@
 }
 
 .job-show-status > h2, .job-show-outcome > h2 {
-  background: $shadow;
+  background: $maincolor;
 }
 
 .job-show-questions {

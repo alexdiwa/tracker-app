@@ -24,8 +24,8 @@ router.get("/login", authRedirect, AuthenticationController.loginNew);
 
 router.post("/login", celebrate({
   body: {
-      email: Joi.string().required(),
-      password: Joi.string().required()
+      email: Joi.string().required().error(new Error('Name is a required field!')),
+      password: Joi.string().required().error(new Error('Password is a required field!')),
   }
 }), 
 passport.authenticate('local', {
