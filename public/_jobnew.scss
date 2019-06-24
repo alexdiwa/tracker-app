@@ -32,6 +32,10 @@ section.new-job {
   .new-job-description {
     grid-column: 1 / span 2;
   }
+
+  .new-job-errors {
+    grid-column: 1 / span 2;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -51,3 +55,4 @@ section.new-job {
   background: $maincolor;
   color: $light;
 }
+

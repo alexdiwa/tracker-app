@@ -3,7 +3,7 @@ const router = express.Router();
 const jobRoutes = require("./job_routes");
 const PagesController = require("./../controllers/pages_controller")
 const AuthenticationController = require("./../controllers/authentication_controller");
-const { celebrate, Joi } = require("celebrate");
+const { celebrate, Joi, errors } = require("celebrate");
 const { authRedirect } = require("./../middleware/authorisation_middleware");
 const passport = require("passport");
 
@@ -40,6 +40,9 @@ router.get("/auth/google", passport.authenticate("google",  {
   session: false
 }), AuthenticationController.loginCreate);
 
+router.use(function errors(err, req, res, next) {
+  return res.render("authentication/login", { error: "Invalid email & password" })
+});
 
 router.use("/jobs", jobRoutes);
 

@@ -8,6 +8,12 @@ section.login-register {
   width: 100%;
   margin: 0 auto;
   background: $light;
+
+  .error {
+    grid-column: 1 / span 2;
+    padding: 20px;
+    padding-bottom: 0;
+  }  
 }
 
 @media screen and (min-width: 600px) {
@@ -23,10 +29,6 @@ section.login-register > h1 {
   color: $light;
 }
 
-section.login-register > .error {
-  grid-column: 1 / span 2;
-  padding: 20px;
-}
 
 
 section.login-register > form {
@@ -68,7 +70,6 @@ div.or {
   font-weight: 700;
   text-decoration: none;
 }
-
 .alternate {
   text-align: center;
 }

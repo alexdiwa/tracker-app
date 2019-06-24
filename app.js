@@ -55,12 +55,14 @@ app.use(sassMiddleware({
 
 app.use(express.static('dest'));
 
-
 app.use(require("./routes"));
 
 app.use(require("./middleware/error_handler_middleware"));
 
-
-app.use(errors());
+// celebrate error handling
+// app.use(function errors(err, req, res, next) {
+//   console.log(req.body);
+//   return res.render("authentication/login", { error: "Invalid email & password" })
+// });
 
 module.exports = app;

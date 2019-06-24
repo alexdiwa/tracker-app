@@ -2,6 +2,11 @@
 
 <form method="post" action="/jobs">
     <section class="new-job">
+        {{#if error}}
+        <div class="new-job-errors">
+            <b>Error:</b> {{error}}
+        </div>
+        {{/if}}
         <div class="new-job-title">
             <label>Title</label>
             <input type="text" name="title" />
