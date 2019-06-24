@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const questionRoutes = require("./question_routes");
 const JobController = require("./../controllers/job_controller");
-const QuestionController = require("./../controllers/question_controller");
+
 // const { authorise } = require("./../middleware/authorisation_middleware");
 const { celebrate, Joi, errors } = require("celebrate");
 const passport = require("passport");
@@ -24,10 +25,11 @@ router.delete("/:id", passport.authenticate('jwt', { session: false }), JobContr
 router.put("/:id", passport.authenticate('jwt', { session: false }), JobController.update);
 router.patch("/:id", passport.authenticate('jwt', { session: false }), JobController.update);
 router.get("/:id/edit", passport.authenticate('jwt', { session: false }), JobController.edit);
-router.post("/:jobId/question", QuestionController.create);
 
 router.use(function errors(err, req, res, next) {
   return res.render("job/new", { error: "Title and company are required" });
 });
+
+router.use("/", questionRoutes);
 
 module.exports = router;
